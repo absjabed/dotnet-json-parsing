@@ -9,8 +9,8 @@ namespace src
             try
             {
                 Arguments arguments = new Arguments(args);
-                ProcessJsonFiles processJson = new ProcessJsonFiles("../data/", arguments);
-                processJson.GetResult();
+                ProcessResult processResult = new ProcessResult("../data/", arguments);
+                processResult.GetResult();
             }
             catch (Exception ex)
             {

@@ -6,17 +6,18 @@ using Newtonsoft.Json.Linq;
 
 namespace src
 {
-    public class ProcessJsonFiles
+    public class ProcessResult
     {
         public string Path { get; set; }
         public Arguments ArgsParams { get; set; }
         private string Result { get; set; }
 
-        public ProcessJsonFiles(string path, Arguments argParams)
+        public ProcessResult(string jsonFilespath, Arguments argParams)
         {
-            this.Path = path;
+            this.Path = jsonFilespath;
             this.ArgsParams = argParams;
         }
+        
         public void GetResult(){
 
             /**Get Users Json File Paths**/
@@ -72,18 +73,21 @@ namespace src
                 }
 
                 /**Active users list string**/
-                if(ArgsParams.Action == "active" && (totalOrderedMeals >=5 && totalOrderedMeals<10)){
+                if(ArgsParams.Action == ArgsParams.DefaultActions[0] && (totalOrderedMeals >=5 && totalOrderedMeals<10)){
                     Result += userId+',';
+                    //Console.WriteLine(userId+" -> "+ totalOrderedMeals);
                 }
 
                 /**Superactive users list string**/
-                if(ArgsParams.Action == "superactive" && totalOrderedMeals >10){
+                if(ArgsParams.Action == ArgsParams.DefaultActions[1] && totalOrderedMeals >10){
                     Result += userId+',';
+                    //Console.WriteLine(userId+" -> "+ totalOrderedMeals);
                 }
                 
                 /**Bored users list string**/
-                if(ArgsParams.Action == "bored" && totalOrderedMeals < 5){
+                if(ArgsParams.Action == ArgsParams.DefaultActions[2] && totalOrderedMeals < 5){
                     Result += userId+',';
+                    //Console.WriteLine(userId+" -> "+ totalOrderedMeals);
                 }
 
             }

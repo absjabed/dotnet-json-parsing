@@ -8,7 +8,7 @@ namespace src
         public string Action { get; private set; }
         public DateTime FromDate { get; private set; }
         public DateTime ToDate { get; private set; }
-        private string[] DefaultActions { get; } = new string[]{"active","superactive","bored"};
+        public string[] DefaultActions { get; } = new string[]{ "active", "superactive", "bored" };
 
         public Arguments(string[] arguments)
         {
