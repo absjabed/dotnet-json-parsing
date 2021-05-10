@@ -9,8 +9,6 @@ namespace src
         public DateTime FromDate { get; private set; }
         public DateTime ToDate { get; private set; }
         private string[] DefaultActions { get; } = new string[]{"active","superactive","bored"};
-        
-        public enum ActionCount { Active = 5, Superactive= 10, Bored = 5 }
 
         public Arguments(string[] arguments)
         {
